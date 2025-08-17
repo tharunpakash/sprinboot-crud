@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
@@ -16,22 +17,47 @@ public class SoftwareEngineerService {
     @Autowired
     SoftwareEngineerRepo repo;
 SoftwareEngineer engineer;
-    List<SoftwareEngineer>list= Arrays.asList
-            (       new SoftwareEngineer(1,"tharun",Arrays.asList("mongodb","sql","jdbc")),
-                    new SoftwareEngineer(2,"varun",Arrays.asList("java","mysql","dbms")),
-                    new SoftwareEngineer(3,"arun",Arrays.asList("hmtl","css","javascript")));
-
+//    List<SoftwareEngineer>list= new ArrayList<>(Arrays.asList
+//            (       new SoftwareEngineer(1,"tharun","java"),
+//                    new SoftwareEngineer(2,"varun","dbms"),
+//                    new SoftwareEngineer(3,"arun","python")
+//));
     public List<SoftwareEngineer> getEngineer(){
-        return list;
+        return repo.findAll();
     }
+
 
     public SoftwareEngineer getEngineerById(int id) {
-//        for(int i=1;i<list.size();i++){
-//            if(list.get(i).getId() == id){
+//        for (int i = 0; i < list.size(); i++) {
+//            if (list.get(i).getId() == id) {
+//
 //                return list.get(i);
 //            }
-        return list.stream().filter(s->s.getId()==id)
-        .findFirst().get();
-        }
+////                }
+
+        return repo.findById(id).orElse(new SoftwareEngineer());
     }
+    public void addSoftwareEngineer(SoftwareEngineer addEngineer){
+      repo.save(addEngineer);
+    }
+
+
+    public void updateEngineer(SoftwareEngineer updateEngineer) {
+//        int index=0;
+//        for (int i=0;i<list.size();i++){
+//            if(list.get(i).getId()==updateEngineer.getId()){
+//                index=i;
+//                break;
+//            }
+//        }
+//        list.set(index,updateEngineer);
+        repo.save(updateEngineer);
+    }
+
+    public void deleteEngineer(SoftwareEngineer engineer) {
+     repo.delete(engineer);
+    }
+    }
+
+
 

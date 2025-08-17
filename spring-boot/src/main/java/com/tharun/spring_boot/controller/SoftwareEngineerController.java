@@ -3,10 +3,7 @@ package com.tharun.spring_boot.controller;
 import com.tharun.spring_boot.service.SoftwareEngineerService;
 import com.tharun.spring_boot.softwareEngineer.SoftwareEngineer;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -21,5 +18,18 @@ public List<SoftwareEngineer>getEngineer(){
     @GetMapping("/getengineer/{id}")
     public SoftwareEngineer getSoftwareEngineer( @PathVariable int id){
 return service.getEngineerById(id);
+    }
+
+    @PostMapping("/addengineer")
+    public void add(@RequestBody SoftwareEngineer addEngineer){
+        service.addSoftwareEngineer(addEngineer);
+    }
+    @PutMapping("/updateengineer")
+    public void updateEngineer(@RequestBody SoftwareEngineer updateEngineer){
+         service.updateEngineer(updateEngineer);
+    }
+    @DeleteMapping("/deleteengineer")
+public void deleteEngineer(@RequestBody SoftwareEngineer Engineer){
+        service.deleteEngineer(Engineer);
     }
 }

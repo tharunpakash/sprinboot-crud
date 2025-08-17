@@ -14,22 +14,22 @@ public class SoftwareEngineer {
 @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String name;
-    private List<String> techstack;
+    private String techstack;
 
     public SoftwareEngineer(){
     }
 
-    public SoftwareEngineer(Integer id, String name, List<String> techstack) {
+    public SoftwareEngineer(int id, String name, String techstack) {
         this.id = id;
         this.name = name;
         this.techstack = techstack;
     }
 
-    public Integer getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -41,11 +41,11 @@ public class SoftwareEngineer {
         this.name = name;
     }
 
-    public List<String> getTechstack() {
+    public String getTechstack() {
         return techstack;
     }
 
-    public void setTechstack(List<String> techstack) {
+    public void setTechstack(String techstack) {
         this.techstack = techstack;
     }
 
