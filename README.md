@@ -6,8 +6,7 @@
 [![Hibernate](https://img.shields.io/badge/Hibernate-ORM-red?style=flat-square)](https://hibernate.org/)
 [![Postman](https://img.shields.io/badge/Postman-API%20Testing-brightgreen?style=flat-square)](https://www.postman.com/)
 
-A professional Spring Boot web application to manage **Software Engineers** with full CRUD operations, business logic, and MySQL integration. Ideal for demonstrating backend development and RESTful API skills.
-
+A robust Spring Boot application that facilitates the management of software engineers through a RESTful API. This project showcases backend development skills, including CRUD operations, business logic implementation, and MySQL database integration.
 ---
 
 ## 🌟 Features
@@ -31,21 +30,20 @@ A professional Spring Boot web application to manage **Software Engineers** with
 | DELETE | `/deleteengineer/{id}`    | Delete an engineer by ID            |
 
 ---
-
-## 🏗️ Project Architecture
+## 📁 Project Structure
+src/
+ └─ main/
+     ├─ java/
+     │   └─ com.example.softwareengineer
+     │       ├─ controller/       # REST controllers
+     │       ├─ service/          # Business logic
+     │       ├─ repository/       # Spring Data JPA repositories
+     │       └─ model/            # Entity classes
+     └─ resources/
+         ├─ application.properties # Database configurations
+         └─ data.sql              # Optional initial data
 
 ---
-
-## 🔄 API Flow Diagram
-
-```mermaid
-graph TD
-    Client[Postman / Frontend] -->|GET/POST/PUT/DELETE| Controller[REST Controller]
-    Controller --> Service[Business Logic Service]
-    Service --> Repository[Spring Data JPA Repository]
-    Repository --> MySQL[(MySQL Database)].
----
-
 ## ⚙️ Tech Stack
 
 1 Backend: Java, Spring Boot, Hibernate
